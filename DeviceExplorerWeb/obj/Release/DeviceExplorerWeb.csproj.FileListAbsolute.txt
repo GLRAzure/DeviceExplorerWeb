@@ -53,3 +53,5 @@ c:\users\jaerrett.northamerica\documents\visual studio 2015\Projects\DeviceExplo
 c:\users\jaerrett.northamerica\documents\visual studio 2015\Projects\DeviceExplorerWeb\DeviceExplorerWeb\bin\Microsoft.AspNet.FriendlyUrls.xml
 c:\users\jaerrett.northamerica\documents\visual studio 2015\Projects\DeviceExplorerWeb\DeviceExplorerWeb\obj\Release\DeviceExplorerWeb.dll
 c:\users\jaerrett.northamerica\documents\visual studio 2015\Projects\DeviceExplorerWeb\DeviceExplorerWeb\obj\Release\DeviceExplorerWeb.pdb
+c:\users\jaerrett.northamerica\documents\visual studio 2015\Projects\DeviceExplorerWeb\DeviceExplorerWeb\bin\Microsoft.ServiceBus.dll
+c:\users\jaerrett.northamerica\documents\visual studio 2015\Projects\DeviceExplorerWeb\DeviceExplorerWeb\bin\Microsoft.ServiceBus.xml
