@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using Microsoft.ServiceBus.Messaging;
 using Microsoft.Azure.Devices;
+using Microsoft.Azure.Devices.Client;
 using Microsoft.Azure.Devices.Common;
 using Microsoft.Azure.Devices.Common.Security;
 using System.Text;
@@ -26,7 +27,7 @@ namespace DeviceExplorerWeb
 
         protected void cmdUpdate_Click(object sender, EventArgs e)
         {
-            var builder = IotHubConnectionStringBuilder.Create(txtConnectionString.Text);
+            var builder = Microsoft.Azure.Devices.IotHubConnectionStringBuilder.Create(txtConnectionString.Text);
             iotHubHostName = builder.HostName;
             if (iotHubHostName != "")
             {
@@ -61,7 +62,7 @@ namespace DeviceExplorerWeb
         {
             if (txtNewDeviceName.Text != String.Empty)
             {
-                var builder = IotHubConnectionStringBuilder.Create(txtConnectionString.Text);
+                var builder = Microsoft.Azure.Devices.IotHubConnectionStringBuilder.Create(txtConnectionString.Text);
                 iotHubHostName = builder.HostName;
                 registerDevice();
             }
@@ -78,8 +79,8 @@ namespace DeviceExplorerWeb
         protected void devicesGridView_SelectedIndexChanged(object sender, EventArgs e)
         {
             var row = devicesGridView.SelectedRow;
-            var deviceId = row.Cells[1].Text;
-            var deviceKey = row.Cells[2].Text;
+            var deviceId = row.Cells[2].Text;
+            var deviceKey = row.Cells[3].Text;
 
             var sasBuilder = new SharedAccessSignatureBuilder()
             {
@@ -256,6 +257,35 @@ namespace DeviceExplorerWeb
 
             UpdatePanel1.Update();
             UpdatePanel1.Update();
+        }
+
+        protected void devicesGridView_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            int rowKey = Convert.ToInt32(e.CommandArgument);
+            string deviceConnectionString = ((GridView)sender).Rows[rowKey].Cells[5].Text;
+            string deviceID = ((GridView)sender).Rows[rowKey].Cells[2].Text;
+
+            sendMessageFromDevice(deviceConnectionString, deviceID);
+        }
+
+        async void sendMessageFromDevice(string cn, string deviceID)
+        {
+            DeviceClient deviceClient = DeviceClient.CreateFromConnectionString(cn, Microsoft.Azure.Devices.Client.TransportType.Http1);
+            string dataBuffer = String.Empty;
+            if (txtCustomMessage.Text != "")
+            {
+                dataBuffer = txtCustomMessage.Text;
+            }
+            else
+            {
+                dataBuffer = Guid.NewGuid().ToString();
+            }
+
+            Microsoft.Azure.Devices.Client.Message eventMessage = new Microsoft.Azure.Devices.Client.Message(Encoding.UTF8.GetBytes(dataBuffer));
+
+            lblMessageStatus0.Text = $"Sent from Device ID: [{deviceID}], Message:\"{dataBuffer}\", message Id: {eventMessage.MessageId}\n";
+
+            await deviceClient.SendEventAsync(eventMessage);
         }
     }
 }

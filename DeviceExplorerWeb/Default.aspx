@@ -32,38 +32,42 @@
                    &nbsp;
                   <br />
                 <asp:Label ID="lblMessageStatus" runat="server" ForeColor="Blue"></asp:Label>
+                <br />
+                <br />
+                <asp:Label ID="lblSAS" runat="server" Text="SAS Token: [Generate Token]"></asp:Label>
+                <br />
+                <br />
+                <asp:Label ID="lblCustomMessage" runat="server" Text="Optional: Custom Message"></asp:Label>
+        &nbsp;
+                <asp:TextBox ID="txtCustomMessage" runat="server" Width="447px"></asp:TextBox>
+                &nbsp;
+                <br />
+                <asp:Label ID="lblMessageStatus0" runat="server" ForeColor="Blue"></asp:Label>
+                <br />
+                <br />
+                <asp:GridView ID="devicesGridView" runat="server" CellPadding="4" ForeColor="#333333" GridLines="None" OnSelectedIndexChanged="devicesGridView_SelectedIndexChanged" OnRowCommand="devicesGridView_RowCommand">
+                    <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
+                    <Columns>
+                        <asp:CommandField ButtonType="Button" SelectText="Generate SAS" ShowSelectButton="True" />
+                        <asp:ButtonField ButtonType="Button" Text="Send Message From Device" />
+                    </Columns>
+                    <EditRowStyle BackColor="#999999" />
+                    <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
+                    <HeaderStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
+                    <PagerStyle BackColor="#284775" ForeColor="White" HorizontalAlign="Center" />
+                    <RowStyle BackColor="#F7F6F3" ForeColor="#333333" />
+                    <SelectedRowStyle BackColor="#E2DED6" Font-Bold="True" ForeColor="#333333" />
+                    <SortedAscendingCellStyle BackColor="#E9E7E2" />
+                    <SortedAscendingHeaderStyle BackColor="#506C8C" />
+                    <SortedDescendingCellStyle BackColor="#FFFDF8" />
+                    <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
+                </asp:GridView>
+                <br />
+                <br />
             </ContentTemplate>
         </asp:UpdatePanel>
-        <br />
-        <br />
-        <asp:Label ID="lblSAS" runat="server" Text="SAS Token: [Generate Token]"></asp:Label>
-        <br />
-        <br />
-        <asp:GridView ID="devicesGridView" runat="server" AutoGenerateColumns="False" CellPadding="4" ForeColor="#333333" GridLines="None" OnSelectedIndexChanged="devicesGridView_SelectedIndexChanged">
-            <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
-            <Columns>
-                <asp:CommandField ButtonType="Button" SelectText="Generate SAS" ShowSelectButton="True" />
-                <asp:BoundField DataField="Id" HeaderText="Id" />
-                <asp:BoundField DataField="ConnectionString" HeaderText="ConnectionString" />
-                <asp:BoundField DataField="ConnectionState" HeaderText="ConnectionState" />
-                <asp:BoundField DataField="LastActivityTime" HeaderText="LastActivityTime" />
-                <asp:BoundField DataField="MessageCount" HeaderText="MessageCount" />
-                <asp:BoundField DataField="State" HeaderText="State" />
-            </Columns>
-            <EditRowStyle BackColor="#999999" />
-            <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
-            <HeaderStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
-            <PagerStyle BackColor="#284775" ForeColor="White" HorizontalAlign="Center" />
-            <RowStyle BackColor="#F7F6F3" ForeColor="#333333" />
-            <SelectedRowStyle BackColor="#E2DED6" Font-Bold="True" ForeColor="#333333" />
-            <SortedAscendingCellStyle BackColor="#E9E7E2" />
-            <SortedAscendingHeaderStyle BackColor="#506C8C" />
-            <SortedDescendingCellStyle BackColor="#FFFDF8" />
-            <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
-        </asp:GridView>
-        <br />
-        <br />
-        <asp:UpdatePanel ID="UpdatePanel1" UpdateMode="Conditional" runat="server">
+        
+        <!--<asp:UpdatePanel ID="UpdatePanel1" UpdateMode="Conditional" runat="server">
             <ContentTemplate>
                 <asp:Label ID="Label4" runat="server" Text="Retrieve Messages from"></asp:Label>
                  &nbsp;
@@ -75,7 +79,7 @@
                 <br /><br />
                 <asp:TextBox ID="txtMessages" TextMode="MultiLine" Rows="25" runat="server" Width="801px"></asp:TextBox>
             </ContentTemplate>
-        </asp:UpdatePanel>
+        </asp:UpdatePanel>-->
     </div>
 
 </asp:Content>

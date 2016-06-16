@@ -130,6 +130,33 @@ namespace DeviceExplorerWeb {
         protected global::System.Web.UI.WebControls.Label lblSAS;
         
         /// <summary>
+        /// lblCustomMessage control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblCustomMessage;
+        
+        /// <summary>
+        /// txtCustomMessage control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtCustomMessage;
+        
+        /// <summary>
+        /// lblMessageStatus0 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblMessageStatus0;
+        
+        /// <summary>
         /// devicesGridView control.
         /// </summary>
         /// <remarks>
