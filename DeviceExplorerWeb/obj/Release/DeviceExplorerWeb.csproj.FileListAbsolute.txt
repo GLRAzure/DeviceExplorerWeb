@@ -175,3 +175,4 @@ C:\DEV\Projects\DeviceExplorerWeb\DeviceExplorerWeb\bin\zh-Hans\System.Spatial.r
 C:\DEV\Projects\DeviceExplorerWeb\DeviceExplorerWeb\bin\zh-Hant\System.Spatial.resources.dll
 C:\DEV\Projects\DeviceExplorerWeb\DeviceExplorerWeb\obj\Release\DeviceExplorerWeb.dll
 C:\DEV\Projects\DeviceExplorerWeb\DeviceExplorerWeb\obj\Release\DeviceExplorerWeb.pdb
+C:\DEV\Projects\DeviceExplorerWeb\DeviceExplorerWeb\obj\Release\DeviceExplorerWeb.csprojResolveAssemblyReference.cache
